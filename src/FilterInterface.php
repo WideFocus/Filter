@@ -8,6 +8,9 @@ namespace WideFocus\Filter;
 
 use ArrayAccess;
 
+/**
+ * Filters values.
+ */
 interface FilterInterface
 {
     /**
@@ -17,7 +20,7 @@ interface FilterInterface
      *
      * @return mixed
      */
-    public function filter($value);
+    public function __invoke($value);
 
     /**
      * Set the parameters.
