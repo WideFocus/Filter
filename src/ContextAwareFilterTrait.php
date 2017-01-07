@@ -19,7 +19,7 @@ trait ContextAwareFilterTrait
     private $context;
 
     /**
-     * Set the context to be used during validation.
+     * Set the context to use while filtering.
      *
      * @param ArrayAccess $context
      *
@@ -31,7 +31,17 @@ trait ContextAwareFilterTrait
     }
 
     /**
-     * Get the context to be used during validation.
+     * Whether a context has been set.
+     *
+     * @return bool
+     */
+    protected function hasContext(): bool
+    {
+        return $this->context !== null;
+    }
+
+    /**
+     * Get the context to use while filtering.
      *
      * @return ArrayAccess
      */
