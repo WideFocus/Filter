@@ -14,8 +14,6 @@ use WideFocus\Filter\Tests\TestDouble\ConfigurableFilterDouble;
  */
 class ConfigurableFilterTraitTest extends PHPUnit_Framework_TestCase
 {
-    use CommonFilterMocksTrait;
-
     /**
      * @param array $parameters
      * @param array $expected

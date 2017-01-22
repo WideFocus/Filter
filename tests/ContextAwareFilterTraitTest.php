@@ -15,8 +15,6 @@ use WideFocus\Filter\Tests\TestDouble\ContextAwareFilterDouble;
  */
 class ContextAwareFilterTraitTest extends PHPUnit_Framework_TestCase
 {
-    use CommonFilterMocksTrait;
-
     /**
      * @param ArrayAccess|null $context
      *
@@ -44,7 +42,7 @@ class ContextAwareFilterTraitTest extends PHPUnit_Framework_TestCase
     {
         return [
             [
-                $this->createArrayAccessMock()
+                $this->createMock(ArrayAccess::class)
             ],
             [
                 null
