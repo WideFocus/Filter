@@ -1,14 +1,14 @@
 {
     "name": "widefocus/filter",
-    "description": "This package contains contains filters to transform values.",
+    "description": "This package contains filters to transform values.",
     "type": "library",
-    "license": "proprietary",
+    "license": "MIT",
     "prefer-stable": true,
     "minimum-stability": "dev",
     "authors": [
         {
             "name": "Ashoka de Wit",
-            "email": "contact@widefocus.net"
+            "email": "ashoka@widefocus.net"
         }
     ],
     "require": {
