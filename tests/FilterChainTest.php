@@ -20,13 +20,26 @@ class FilterChainTest extends PHPUnit_Framework_TestCase
     /**
      * @return void
      *
+     * @covers ::__construct
+     */
+    public function testConstructor()
+    {
+        $this->assertInstanceOf(
+            FilterChain::class,
+            new FilterChain()
+        );
+    }
+
+    /**
+     * @return void
+     *
      * @covers ::__invoke
-     * @covers ::addFilter
+     * @covers ::__construct
      */
     public function testInvoke()
     {
-        $value    = 'foo';
-        $context  = $this->createMock(ArrayAccess::class);
+        $value   = 'foo';
+        $context = $this->createMock(ArrayAccess::class);
 
         $callback = function ($value) {
             return $value;
@@ -47,10 +60,7 @@ class FilterChainTest extends PHPUnit_Framework_TestCase
             ->method('setContext')
             ->with($context);
 
-        $chain = new FilterChain();
-        $chain->addFilter($callback);
-        $chain->addFilter($filter);
-        $chain->addFilter($contextAwareFilter);
+        $chain = new FilterChain($callback, $filter, $contextAwareFilter);
         $chain->setContext($context);
 
         $chain->__invoke($value);

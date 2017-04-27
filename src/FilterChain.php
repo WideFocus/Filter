@@ -9,14 +9,24 @@ namespace WideFocus\Filter;
 /**
  * Chains filters.
  */
-class FilterChain implements FilterChainInterface, ContextAwareFilterInterface
+class FilterChain implements ContextAwareFilterInterface
 {
     use ContextAwareFilterTrait;
 
     /**
-     * @var callable
+     * @var callable[]
      */
     private $filters;
+
+    /**
+     * Constructor.
+     *
+     * @param callable[] ...$filters
+     */
+    public function __construct(callable ...$filters)
+    {
+        $this->filters = $filters;
+    }
 
     /**
      * Filter a value.
@@ -33,20 +43,10 @@ class FilterChain implements FilterChainInterface, ContextAwareFilterInterface
             ) {
                 $filter->setContext($this->getContext());
             }
+
             $value = call_user_func($filter, $value);
         }
-        return $value;
-    }
 
-    /**
-     * Add a filter to the chain.
-     *
-     * @param callable $filter
-     *
-     * @return void
-     */
-    public function addFilter(callable $filter)
-    {
-        $this->filters[] = $filter;
+        return $value;
     }
 }
