@@ -18,7 +18,7 @@ interface ContextAwareFilterInterface extends FilterInterface
      *
      * @param ArrayAccess $context
      *
-     * @return FilterInterface
+     * @return void
      */
     public function setContext(ArrayAccess $context);
 }
